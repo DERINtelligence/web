@@ -11,11 +11,11 @@ title: Guess who's back'propagate. - Xəta funksiyası və stoxastik nöqtəvi m
 }
 </style>
 
-Salamlar, keçən [yazıda](http://derintelligence.com/suni_neyron_shebekeler_ireli_qidalama/) süni neyron şəbəkənin arxitekturası haqqında danışdıq. Orada göstərdiyim "irəli qidalama" tərcüməsi ilə bağlı bir neçə mesaj aldım və biraz qəribə tərcümə olduğunu nəzərə alaraq onu "irəliyə ötürmə" kimi dəyişməyin daha düzgün olduğunu düşünürəm. Bundan əvvəlki yazıda da uyğun dəyişiklikləri edəcəyəm.
+Salamlar, keçən [yazıda](http://derintelligence.az/suni_neyron_shebekeler_ireli_qidalama/) süni neyron şəbəkənin arxitekturası haqqında danışdıq. Orada göstərdiyim "irəli qidalama" tərcüməsi ilə bağlı bir neçə mesaj aldım və biraz qəribə tərcümə olduğunu nəzərə alaraq onu "irəliyə ötürmə" kimi dəyişməyin daha düzgün olduğunu düşünürəm. Bundan əvvəlki yazıda da uyğun dəyişiklikləri edəcəyəm.
 
 Bu dəfəki yazımızda maşın öyrənmənin ümumi izahından, istifadə olunan bərabərliklərdən və alqoritmlərdən - xəta funksiyasından və stoxastik nöqtəvi meyilli azalma haqqında danışacam. Bu yazını yazarkən, oxuyucumun ən azı maşın öyrənmənin nə olduğunu bildiyini ümid edirəm. Hazır olun, bu yazıda bol-bol riyazi ifadələr görəcəksiniz. Kəmərləri bağlayın, başlayırıq.
 
-<img src="https://raw.githubusercontent.com/DERINtelligence/jekyll-now/master/images/paris_blog.jpg" style="width:700px;height:400px">
+<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/paris_blog.jpg" style="width:700px;height:400px">
 
 Əslində bu yazını yazmaq bir qədər çətindir, çünki, maşın öyrənmə alqoritmlərini tam izah etmək üçün 1 yox, 5 yazı bəs etməz, böyük ehtimalla. Ona görə də mən bu yazıda yalnızca bizim SNŞ-dəki hesablamalar üçün lazım olan önəmli nüanslara toxunacam. Belə ki, maşın öyrənmə alqoritmləri(biz burada öyrənməni müşahidəli(ing. supervised) olaraq hesab edirik) verilənlər toplusu $$X={X_1, X_2, \cdots, X_N}$$ və ona uyğun cavablar $$Y={Y_1, Y_2, \cdots, Y_N}$$ əsasında qeyri-xətti və ya xətti bir qanunauyğunluq taparaq verilənlər toplusu ilə eyni quruluşda olan yeni verilənə uyğun cavabı təxmin etmək üçün istifadə edilir. Bu iki ardıcıl prosesə "öyrən və təxmin et" (ing. learn and predict) də deyə bilərik. Ancaq bu prosesdə, məncə bir nüans əskikdi, sizcə, hansı? 
 

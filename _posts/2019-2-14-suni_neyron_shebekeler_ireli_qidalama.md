@@ -13,11 +13,11 @@ title: Guess who's back'propagate. - Süni neyron şəbəkə və irəliyə ötü
 
 Salamlar, aylar oldu bizdən yazı görmədiyiniz, bilirik. Deməli məsələ belə idi ki, bizim saytımız çökdü, problemlər oldu və biz daha sadə bir struktura keçməyə qərar verdik. Artıq yazılara Wordpress'dən yox, Jekyll-Now dizaynı olan sadə bir saytdan davam edəcəyik (bəlkə, ə'lər də xoşunuza gələr bu dəfə). Bu arada, neyronlar və siqmoid funksiya haqda olan iki yazı silinib, onları yenidən bərpa etməyə çalışacam.
 
-<img src="https://raw.githubusercontent.com/DERINtelligence/jekyll-now/master/images/london_blog.jpg" style="width:700px;height:400px">
+<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/london_blog.jpg" style="width:700px;height:400px">
 
 Deməli, keçək mətləbə. Bugün süni neyron şəbəkənin strukturuna giriş edəcəyik. Əgər ümumi neyron anlayışına və aktivasiya funksiyaları haqda ümumi anlayışınız varsa, SNŞ-lərin sadə quruluşu sizin üçün çətin olmayacaq. (bundan sonra süni neyron şəbəkələri SNŞ'lə ifadə edəcəyik). Belə ki, mən bu yazıda verəcəyim arxitekturada aktivasiya funksiyasını siqmoid funksiya olaraq qəbul edirəm. Gəlin sadə neyronun siqmoidlə aktivasiyanı xatırlayaq.
 
-<img src="https://raw.githubusercontent.com/DERINtelligence/jekyll-now/master/images/sigma.png" style="width:300px;height:140px" class="center">
+<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/sigma.png" style="width:300px;height:140px" class="center">
 
 \begin{eqnarray} 
 		z = w \cdot x + b
@@ -38,7 +38,7 @@ Bizim əsas məqsədimiz bu və ya oxşar(digər aktivasiya funksiyaları istifa
 **Əlavə məlumat:** SNŞ-də gizli qatın istifadə edilməsinin riyazi səbəbinə daha ətraflı girmək istəmirəm. Səbəbi bu mövzunun bizim danışdığımız konteksdən bir qədər uzaq olmasıdır. Ancaq bunu qeyd etmək istəyirəm ki, nisbətən sadə (1 və ya 2 gizli qatlı) şəbəkə belə istənilən sərhədlənmiş təyin oblastı olan silsiləvi funksiyanı təxmin edə bilər. Əgər riyazi analiz hissəsi sizə çox maraqlıdırsa, bu [linkdəki](https://towardsdatascience.com/representation-power-of-neural-networks-8e99a383586) yazı yaxşı giriş ola bilər.
 
 Aşağıda gördüyünüz neyron şəbəkə(şəkil EPFL universitetin ["Machine Learning"](https://mlo.epfl.ch/page-157255-en-html/) kursunun materiallarından götürülmüşdür.) hər biri *K* ölçüdə olan *L* ədəd gizli qat, *D* ölçülü giriş qatdan və çıxış qatdan ibarətdir. Şəkildə də gördüyünüz kimi hər hesablama mərhələsinin girişi bir əvvəlki qatın çıxışıdır(və ya şəbəkənin girişidir). Geriyə doğru döngü olmadığından və hər addım irəliyə olduğundan belə modellər ingilis dilli ədəbiyyatlarda *feedforward*, türk dilli ədəbiyyatlarda *ileri beslemeli* şəbəkə olaraq qeyd edilir. <s>Azərbaycan dilində bununla bağlı xüsusi bir mənbə tapa bilmədiyimdən və türk dilində də tərcümə zamanı ingilis dilli terminin hərfi mənası işlədiyindən mən də onu *irəli qidalı* şəbəkə adlandırmağa qərar verdim.(qəribə səslənir, bilirəm, əgər sizin də bir təklifiniz varsa, bizə yazsanız sevinərik.)</s>. Bu yazını paylaşdıqdan sonra bu mövzu ilə bağlı bir neçə rəy aldım, "irəli qıdalı" biraz qəribə səsləndiyindən və hər bir qat öz dəyərini növbəti qata giriş olaraq ötürdüyündən tərcüməni "irəliyə ötürmə"-yə dəyişməyə qərara aldım.
-<img src="https://raw.githubusercontent.com/DERINtelligence/jekyll-now/master/images/neuralnetwork.png" style="width:700px;height:400px">
+<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/neuralnetwork.png" style="width:700px;height:400px">
 
 Deməli, bu irəliyə ötürməli şəbəkədə gizli qat $$l$$-dəki (hansı ki, $$l = 1, \dots, L$$) hər bir neyron özündən bir əvvəlki qatdakı bütün neyronlarla əlaqəlidir. Gəlin, $$l-1$$ qatındakı $$i$$ neyronundan $$l$$ qatındakı $$j$$ neyronuna olan əlaqənin ağırlığını $$w_{i, j}^{(l)}$$ ilə işarə edək. Bu halda $$l$$ qatındakı $$j$$ neyronunun dəyəri olan $$x_j^{(l)}$$-ni aşağıdakı bərabərliklə ifadə edə bilərik.
 
