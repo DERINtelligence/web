@@ -41,7 +41,7 @@ Xəta funksiyası maşın öyrənmə alqoritmlərinin təməlini təşkil edir, 
 
 Yuxarıdakı abzasda sondan ikinci cümlədə fikir versəniz "müəyyən üsulla" hissəsini xüsusi işarələdim. İndi bizi maraqlandıran isə bizə ən dəqiq modeli verəcək ən optimal $$w$$ və $$b$$-ni hər iterasiyada hansı üsulu istifadə edərək dəyişəcəyimizi müəyyən etməkdir. Maşın öyrənmədə, təbii ki, bir-birindən fərqli müxtəlif üsullar təklif olunub, ancaq mən sizə SNŞ-lərin döyünən ürəyi olan **stoxastik nöqtəvi meyilli azalmanı(SNMA)**(ing. stochastic gradient descent(SGD)) göstərəcəm. Bu arada, bu mövzu hələ də üzərində kifayət qədər elmi araşdırma gedən mövzudur və dərin riyazi izahı vaxt alandır, ona görə də mən riyazi analizin axtarışını sizin ixtiyarınıza buraxıram. Bununla belə, bizə lazım olacaq riyazi izahı verəcəm, təbii ki. 
 
-<img src="https://raw.githubusercontent.com/DERINtelligence/jekyll-now/master/images/sgd.png" style="width:700px;height:500px">
+<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/sgd.png" style="width:700px;height:500px">
 
 Belə ki, **nöqtəvi meyil(ing. gradient)** funksiyanın toxunanının müəyyən nöqtədəki meylidir. Nöqtəvi meyil, xəta funksiyasının artış istiqamətinin əksinə olan vektor olaraq da ifadə edilir. Ancaq biz burda qarışıqlıq olmasın deyə onun ədədi dəyəri ilə ifadə edəcəyik. Belə ki, ədədi dəyər ilə ifadə edildiyində nöqtəvi meyil, sadəcə xəta funksiyasının müəyyən nöqtədəki differensialının əksinə bərabər olur. $$L$$ funksiyası $$w$$ və $$b$$-dən asılı funksiya olduğundan, iki nöqtəvi meyildən istifadə edəcəyik. Belə ki, hər hansı bir arqumentin $$t+1$$ anındakı dəyərini tapmaq üçün onun $$t$$ anındakı dəyəri ilə həmin andakı nöqtəvi meylini toplayacağıq. 
 
