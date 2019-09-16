@@ -4,7 +4,7 @@ title: Guess who's back'propagate. - Süni neyron şəbəkə və irəliyə ötü
 author: Mammad Hajili
 ---
 
-Salamlar, aylar oldu bizdən yazı görmədiyiniz, bilirik. Deməli məsələ belə idi ki, bizim saytımız çökdü, problemlər oldu və biz daha sadə bir struktura keçməyə qərar verdik. Artıq yazılara Wordpress'dən yox, Jekyll-Now dizaynı olan sadə bir saytdan davam edəcəyik (bəlkə, ə'lər də xoşunuza gələr bu dəfə). Bu arada, neyronlar və siqmoid funksiya haqda olan iki yazı silinib, onları yenidən bərpa etməyə çalışacam.
+Salamlar, bu yazı Derintelligence-də yazacağımız ilk seriyanın ilk yazısıdır. Bu seriyamız dərin öyrənmənin əsas elementi olan süni neyron şəbəkələr haqqında olacaq. Bu yazı seriyasına başlamağımızın əsas səbəbi texniki resursların artdığı son illərdə sürətlə inkişaf edən maşın/dərin öyrənmə sahəsində Azərbaycanın geri qaldığını düşünməyimiz və bu sahə ilə maraqlanan tələbələr, mühəndislər və araşdırmacıların lazımlı məlumatları yalnızca türk, rus, ingilis dili kimi fərqli dillərdə olan mənbələrdən tapa bilməsidir.
 
 <img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/london_blog.jpg">
 
