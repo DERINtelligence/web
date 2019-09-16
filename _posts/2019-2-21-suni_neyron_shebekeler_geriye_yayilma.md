@@ -1,23 +1,17 @@
 ---
 layout: post
 title: Guess who's back'propagate. - Zəncir qaydası və geriyə yayılma.
+author: Mammad Hajili
 ---
-<style type="text/css">
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%
-}
-</style>
-
 Salamlar, keçən [yazıda](http://derintelligence.az/suni_neyron_shebekeler_mashin_oyrenme/) maşın öyrənmənin təməlini təşkil edən xəta funksiyalarından və ən önəmli alqoritmlərdən olan nöqtəvi meyilli azalma haqqında danışmışdıq. Bu dəfə istəyirəm, keçən dəfə qeyd etdiklərimin süni neyron şəbəkələrdə necə istifadə edildiyi haqqında danışım. Belə ki, bu yazı nöqtəvi meyilli azalmanın neyron şəbəkədə tətbiqi olan geriyə yayılma və onun həlli üçün istifadə edəcəyimiz riyazi metod olan zəncir qaydası ilə bağlıdır.
 
-<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/lausanne.jpg" style="width:700px;height:400px">
+<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/lausanne.jpg" style="width:100%;">
 
 Gəlin ilk olaraq neyron şəbəkə arxitekturasını və irəliyə ötürmə qaydasını yada salaq.
+<div class="center">
+    <img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/neuralnetwork.png">
+</div>
 
-<img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/neuralnetwork.png" style="width:700px;height:400px">
 
 Qeyd: Bu yazıda xəta funksiyası ($$L$$), və son qat ($$L$$) qarışmasın deyə, xəta funksiyasını $$C$$ ilə əvəz edəcəm.
 
