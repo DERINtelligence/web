@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-The project was founded by two undergraduate students of Baku Engineering University - Rasul Karimov and Mammad Hajili in 2018(Now Rasul and Mammad are graduate students at Skoltech and EPFL respectively). The main aim of the project is accelerating the development of AI and related topics in Azerbaijan by supporting the research and education with shared knowledge.
+The project was founded by two undergraduate students of Baku Engineering University - Rasul Karimov and Mammad Hajili in 2018(Now Rasul and Mammad are graduate students at Skoltech/Samsung AI and EPFL/IBM Research respectively). The main aim of the project is accelerating the development of AI and related topics in Azerbaijan by supporting the research and education with shared knowledge.
 
 
 ### Contact us
