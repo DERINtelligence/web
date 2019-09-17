@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Guess who's back'propagate. - Zəncir qaydası və geriyə yayılma. – Derintelligence – A research project, supports AI in Azerbaijan</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="Salamlar, keçən yazıda maşın öyrənmənin təməlini təşkil edən xəta funksiyalarından və ən önəmli alqoritmlərdən olan nöqtəvi meyilli azalma haqqında danışmışdıq. Bu dəfə istəyirəm, keçən dəfə qeyd etdiklərimin süni neyron şəbəkələrdə necə istifadə edildiyi haqqında danışım. Belə ki, bu yazı nöqtəvi meyilli azalmanın neyron şəbəkədə tətbiqi olan geriyə yayılma və onun həlli üçün istifadə edəcəyimiz riyazi metod olan zəncir qaydası ilə bağlıdır.
+
+" />
+    <meta property="og:description" content="Salamlar, keçən yazıda maşın öyrənmənin təməlini təşkil edən xəta funksiyalarından və ən önəmli alqoritmlərdən olan nöqtəvi meyilli azalma haqqında danışmışdıq. Bu dəfə istəyirəm, keçən dəfə qeyd etdiklərimin süni neyron şəbəkələrdə necə istifadə edildiyi haqqında danışım. Belə ki, bu yazı nöqtəvi meyilli azalmanın neyron şəbəkədə tətbiqi olan geriyə yayılma və onun həlli üçün istifadə edəcəyimiz riyazi metod olan zəncir qaydası ilə bağlıdır.
+
+" />
+    
+    <meta name="author" content="Derintelligence" />
+
+    
+    <meta property="og:title" content="Guess who's back'propagate. - Zəncir qaydası və geriyə yayılma." />
+    <meta property="twitter:title" content="Guess who's back'propagate. - Zəncir qaydası və geriyə yayılma." />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="shortcut icon" type="image/png" href="/favicon.png">
+    <link rel="alternate" type="application/rss+xml" title="Derintelligence - A research project, supports AI in Azerbaijan" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="/" class="site-avatar"><img src="http://127.0.0.1:4000/images/logodone.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Derintelligence</a></h1>
+            <p class="site-description">A research project, supports AI in Azerbaijan</p>
+          </div>
+
+          <nav>
+            <a href="/">Blog</a>
+            <a href="/about">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Guess who's back'propagate. - Zəncir qaydası və geriyə yayılma.</h1>
+
+  <div class="entry">
+    <p>Salamlar, keçən <a href="http://derintelligence.az/suni_neyron_shebekeler_mashin_oyrenme/">yazıda</a> maşın öyrənmənin təməlini təşkil edən xəta funksiyalarından və ən önəmli alqoritmlərdən olan nöqtəvi meyilli azalma haqqında danışmışdıq. Bu dəfə istəyirəm, keçən dəfə qeyd etdiklərimin süni neyron şəbəkələrdə necə istifadə edildiyi haqqında danışım. Belə ki, bu yazı nöqtəvi meyilli azalmanın neyron şəbəkədə tətbiqi olan geriyə yayılma və onun həlli üçün istifadə edəcəyimiz riyazi metod olan zəncir qaydası ilə bağlıdır.</p>
+
+<p><img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/lausanne.jpg" style="width:100%;" /></p>
+
+<p>Gəlin ilk olaraq neyron şəbəkə arxitekturasını və irəliyə ötürmə qaydasını yada salaq.</p>
+<div class="center">
+    <img src="https://raw.githubusercontent.com/DERINtelligence/web/master/images/neuralnetwork.png" />
+</div>
+
+<p>Qeyd: Bu yazıda xəta funksiyası (<script type="math/tex">L</script>), və son qat (<script type="math/tex">L</script>) qarışmasın deyə, xəta funksiyasını <script type="math/tex">C</script> ilə əvəz edəcəm.</p>
+
+<p>\begin{eqnarray}
+        z^{(l)} = w^{(l)} x^{(l-1)} + b^{(l)}
+\tag{1}\end{eqnarray}</p>
+
+<p>\begin{eqnarray}
+        x^{(l)} = \sigma(z^{(l)})
+\tag{2}\end{eqnarray}</p>
+
+<p>İndi isə xəta funksiyası və stoxastik nöqtəvi meyilli azalmanı xatırlayaq.</p>
+
+<p>\begin{eqnarray}
+		C = \frac{1}{2}{(Y - f)} ^ 2
+\tag{3}\end{eqnarray}</p>
+
+<p>Süni neyron şəbəkədə riyazi modelin çıxış dəyəri şəbəkənin çıxış dəyərinə bərabərdir. Ona görə də Bər. 3-dəki <script type="math/tex">f</script> funksiyası <script type="math/tex">x_{(L)}</script> - ə bərabər olacaqdır. Bu vəziyyətdə Bər. 3-ü belə yaza bilərik:</p>
+
+<p>\begin{eqnarray}
+		C = \frac{1}{2}{(Y - x^{(L)})} ^ 2
+\tag{4}\end{eqnarray}</p>
+
+<p>Bu xəta funksiyasına uyğun nöqtəvi meyilli azalma isə ağırlıq və sürüşmə əmsalının hər bir iterasiyada dəyişməsindən ibarətdir.</p>
+
+<p>\begin{eqnarray}
+		w^{(t+1)} = w^{(t)} - \beta_1\frac{\partial C}{\partial w^{(t)}}
+\tag{5}\end{eqnarray}</p>
+
+<p>\begin{eqnarray}
+		b^{(t+1)} = b^{(t)} - \beta_2\frac{\partial }{\partial b^{(t)}}
+\tag{6}\end{eqnarray}</p>
+
+<p>Bər. 4-də gördüyümüz kimi biz xəta dəyərini hesablayarkən şəbəkənin çıxış dəyəri olan <script type="math/tex">x^{(L)}</script> - in verilən toplusundakı cavab ilə kvadratik fərqini hesablayırıq. <script type="math/tex">x^{(L)}</script> <script type="math/tex">z^{(L)}</script>-dən(Bər 2.), <script type="math/tex">z_{(L)}</script> isə öz növbəsində ağırlıq və sürüşmə dəyərlərindən(Bər 1.) asılıdır. Yəni <script type="math/tex">x^{(L)}</script> <script type="math/tex">w^{(L)}</script> və <script type="math/tex">b^{(L)}</script>-dən asılıdır. Ancaq burda önəmli bir sual yaranır, xətanı azaltmaq üçün Bər 5. və Bər 6. yalnızca <script type="math/tex">w^{(L)}</script> və <script type="math/tex">b^{(L)}</script> - ə tətbiq etməliyik?</p>
+
+<p>Belə olduğu halda şəbəkənin gizli qatlarına uyğun ağırlıq və sürüşmə əmsallarını yox saymış olacağıq. Ancaq Bər 1.-də də gördüyümüz kimi hər qatın dəyəri özündən əvvəlki qatın dəyərindən də asılıdır, yəni ağırlıqlarda və sürüşmədə uyğun dəyişiklik edilməsə, çıxış qatının dəyəri tam optimal olmayacaq. Problem ondadır ki, biz xəta dəyərinin yalnızca çıxış qatında hesablaya bilirik. Bəs onda biz gizli qatlardakı parametrlərində nəyə uyğun dəyişliklər edəcəyik? Başqa bir sözlə desək, nöqtəvi meyilli azalmanı gizli qatları necə tətbiq etmək olar?</p>
+
+<p>Şəbəkədə hər qat özündən bir əvvəlki qatdan asılı olduğundan, çıxış qatınının dəyərini təyin oblastı giriş qatı olan mürəkkəb qeyri-xətti funksiya hesab edə bilərik. Yəni şəbəkənin əsas irəliyə ötürmə prinsipini açılmış şəkildə belə yaza bilərik.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\begin{split}
+   z^{(1)} &= w^{(1)} x^{(0)} + b^{(1)} \\
+   x^{(1)} &= \sigma(z^{(1)}) \\
+   z^{(2)} &= w^{(2)} x^{(1)} + b^{(2)} \\
+   x^{(2)} &= \sigma(z^{(2)}) \\
+   & \dots \\
+   z^{(l)} &= w^{(l)} x^{(l-1)} + b^{(l)} \\
+   x^{(l)} &= \sigma(z^{(l)}) \\
+   & \dots \\
+   z^{(L)} &= w^{(L)} x^{(L-1)} + b^{(L)} \\
+   x^{(L)} &= \sigma(z^{(L)}) \\
+\end{split}
+\tag{7}\end{equation} %]]></script>
+
+<p>Çıxış dəyərinin mürəkkəb funksiya olması bizə hər bir qat üçün nöqtəvi meyili hesablayarkən çox kömək olacaq. Belə ki, biz differensialları hesablayarkən mürəkkəb funksiyaya tətbiq olunan ən önəmli qaydalardan olan <strong>zəncir qaydasından</strong> istifadə edəcəyik. Bu qayda ilə, yəqin ki, oxuyucularımızın əksəriyyəti tanışdır, ancaq, gəlin, qısaca xatırlayaq.</p>
+
+<h1 id="zəncir-qaydası">Zəncir Qaydası</h1>
+
+<p>İxtiyari <script type="math/tex">f</script>, <script type="math/tex">g</script> və <script type="math/tex">F</script> funksiyasıları üçün, <script type="math/tex">F=f(g(x))</script> qaydasını qəbul edək. Məqsədimiz <script type="math/tex">F</script>-in <script type="math/tex">x</script> parametrinə uyğun törəməsini hesablamaqdır. Gəlin,<br />
+<script type="math/tex">g(x)</script> - i <script type="math/tex">y</script>, <script type="math/tex">f(y)</script> - i isə <script type="math/tex">z</script> ilə işarə edək. Bu halda zəncir qaydası aşağıdakı kimidir:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{equation}
+\begin{split}
+   F^\prime &= \frac{dz}{dx} \\
+   \frac{dz}{dx} &= \frac{dz}{dy} \frac{dy}{dx} \\
+   \frac{dz}{dx} &= f^\prime(g(x)) g^\prime(x) \\
+   F^\prime &= \frac{dz}{dx} =  f^\prime(g(x)) g^\prime(x)\\
+\end{split}
+\tag{8}\end{equation} %]]></script>
+
+<p>İndi isə qayıdaq əsas problemə - nöqtəvi meyillərin hesablanmasına. Bizim məqsədimiz hər bir qat üçün nöqtəvi meyillər - <script type="math/tex">\frac{\partial C}{\partial w^{(t)}}</script> və <script type="math/tex">\frac{\partial C}{\partial b^{(t)}}</script> - i hesablamaqdır. İlk addım olaraq bu hesablamaları asanlaşdırmaq üçün əlavə bir parametrdən - <script type="math/tex">\delta</script> -dan istifadə edəcəyik.</p>
+
+<p>\begin{eqnarray}
+  \delta^l = \frac{\partial C}{\partial z^l}, \forall l \in [1, L]
+\tag{9}\end{eqnarray}</p>
+
+<p>Yuxarıda vurğuladığım kimi nöqtəvi meyil üçün gərəkli olan xəta funskiyasının dəyəri çıxış qatının dəyərindən asılıdır. Buna görə də, ilk olaraq bu qata uyğun meylin hesablamasından başlayırıq. Mən buradakı hesablamalar zamanı nəticələrin həll yolunu da izah edəcəyəm, əgər “riyaziyyatı boş ver, mənə cavabı ver” deyirsinizsə, hər bərabərliyin son nəticəsinə baxmağınız kifayətdir.</p>
+
+<p>İlk olaraq çıxış qatında başlayırıq.</p>
+
+<p>\begin{eqnarray}
+  \delta^L &amp;= \frac{\partial C}{\partial z^L_j} <br />
+\tag{9}\end{eqnarray}</p>
+
+<p>Növbəti addım kimi bu bərabərliyə zəncir qaydasını tətbiq edirik.</p>
+
+<p>\begin{eqnarray}
+  \delta^L &amp;= \frac{\partial C}{\partial x^L} \frac{\partial x^L}{\partial z^L}
+\tag{11}\end{eqnarray}</p>
+
+<p><script type="math/tex">x^L = \sigma(z^L)</script> bərabərliyini xatırlasaq, yuxarıdakı bərabərliyin ikinci hissəsini <script type="math/tex">\sigma'(z^L_j)</script> kimi yaza bilərik.</p>
+
+<p>\begin{eqnarray}
+  \delta^L = \frac{\partial C}{\partial x^L} \sigma’(z^L_j)
+\tag{12}\end{eqnarray}</p>
+
+<p>Diqqət etsək, görə bilərik ki, bərabərliyin birinci hissəsi isə Bər 4. - ün differensialıdır. Buna görə ifadəni belə yaza bilərik.</p>
+
+<p>\begin{eqnarray} 
+  \delta^L = (x^L-y) \sigma’(z^L).
+\tag{13}\end{eqnarray}</p>
+
+<p><script type="math/tex">\delta^L</script> şəbəkənin <strong>çıxış itkisi</strong>(ing. output error) adlanır. Növbəti addımlarda məqsədimiz bu itkinin gizli qatlara yayılmasını təmin etməkdir. Ümumi ideya bundan ibarətdir ki, hər bir qatdakı itkini ondan əvvəlki qatdakı itkini hesablamaq üçün istifadə edəcəyik. Bu rekursiv məntiq səbəbi ilə istifadə etdiyimiz bu alqoritm itkinin geriyə yayılması adlanır. Hər qatda hesablayacağımız bu itkinin köməkliyi ilə ümumi xətanın hər qatdakı ağırlıq və sürüşməyə nəzərən olan meyilli azalmasını tapa biləcəyik. Beləliklə, bu bizə hər qatdakı ağırlıq və sürüşməni yeniləməyə və optimal həlli tapmağa imkan verəcək.</p>
+
+<p>Növbəti addımda isə ixtiyari gizli qat <script type="math/tex">l</script> üçün itki - <script type="math/tex">\delta^l</script> - in hesablanmasına baxaq.</p>
+
+<p>\begin{eqnarray}
+  \delta^l &amp;= \frac{\partial C}{\partial z^l_j} <br />
+\tag{14}\end{eqnarray}</p>
+
+<p>Çıxış qatından fərqli olaraq gizli qat bir neyron yox, bir neçə neyrondan ibarət ola bilər. <script type="math/tex">l</script> qatındakı hər bir <script type="math/tex">j</script> neyronu tam əlaqələnmiş(ing. fully connected) neyron şəbəkədə <script type="math/tex">l+1</script> qatındakı bütün neyronlarla bağlanmışdır. Buna görə də Bər. 13-ü zəncir qaydasından istifadə edərək, hər bir <script type="math/tex">\delta^l_j</script> üçün belə yaza bilərik.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{eqnarray}
+  \begin{split}
+    \delta^l_j &= \frac{\partial C}{\partial z^l_j} \\
+    &= \sum_k \frac{\partial C}{\partial z^{l+1}_k} \frac{\partial z^{l+1}_k}{\partial z^l_j} \\
+    &= \sum_k \delta^{l+1}_k \frac{\partial z^{l+1}_k}{\partial z^l_j}
+  \end{split}
+\tag{15}\end{eqnarray} %]]></script>
+
+<p>İfadənin ikinci hissəsini hesablamaq üçün <script type="math/tex">l+1</script> qatı üçün irəliyə ötürmə qaydasından istifadə edə bilərik.</p>
+
+<script type="math/tex; mode=display">\begin{eqnarray}
+  z^{l+1}_k = \sum_j w^{l+1}_{kj} x^l_j +b^{l+1}_k = \sum_j w^{l+1}_{kj} \sigma(z^l_j) +b^{l+1}_k.
+\tag{16}\end{eqnarray}</script>
+
+<p>Buna uyğun differensialı həll edə bilərik:</p>
+
+<script type="math/tex; mode=display">\begin{eqnarray}
+  \frac{\partial z^{l+1}_k}{\partial z^l_j} = w^{l+1}_{kj} \sigma'(z^l_j).
+\tag{17}\end{eqnarray}</script>
+
+<p>Hər bir şeyi birləşdirdikdə, Bər 13-ü belə yaza bilərik</p>
+
+<script type="math/tex; mode=display">\begin{eqnarray}
+  \delta^l_j = \sum_k w^{l+1}_{kj}  \delta^{l+1}_k \sigma'(z^l_j).
+\tag{18.1}\end{eqnarray}</script>
+
+<p>Bu bərabərliyi vektor formasında belə də yaza bilərik</p>
+
+<script type="math/tex; mode=display">\begin{eqnarray} 
+  \delta^l = ((w^{l+1})^T \delta^{l+1}) \odot \sigma'(z^l),
+\tag{18.2}\end{eqnarray}</script>
+
+<p>Burada <script type="math/tex">\odot</script> elementvari və ya <a href="https://en.wikipedia.org/wiki/Hadamard_product_(matrices)">Hadamart</a> hasilini ifadə edir.</p>
+
+<p>Artıq <script type="math/tex">\delta^l, l = 1, 2, \dots, L</script> bildiyimiz üçün onlardan istifadə edərək <script type="math/tex">\frac{\partial C}{\partial w}</script> və <script type="math/tex">\frac{\partial C}{\partial b}</script> həll edə bilərik.</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{eqnarray}
+  \frac{\partial C}{\partial w^l_{jk}} &= \frac{\partial C}{\partial z^l_{j}}\frac{\partial z^l_{j}}{\partial w^l_{jk}} \\
+  &= \delta^l_j x^{l-1}_k
+\tag{19.1}\end{eqnarray} %]]></script>
+
+<script type="math/tex; mode=display">% <![CDATA[
+\begin{eqnarray}
+  \frac{\partial C}{\partial b^l_{j}} &= \frac{\partial C}{\partial z^l_{j}}\frac{\partial z^l_{j}}{\partial b^l_{j}} \\
+  &= \delta^l_j
+\tag{19.2}\end{eqnarray} %]]></script>
+
+<p>Qeyd: Arada bəzi sadə törəmə əməliyyatlarını sizin incələməyiniz üçün qəsdən buraxdım.</p>
+
+<p>Yekun olaraq bütün geriyə yayılma alqoritminin elementlərini birlikdə yazaq:</p>
+
+<ol>
+  <li>İrəliyə ötürmə: Hər bir <script type="math/tex">l = 2, 3, \ldots, L</script> üçün <script type="math/tex">z^l</script> və <script type="math/tex">x^l</script> - i hesablamaq.</li>
+  <li>Çıxış itkisi: <script type="math/tex">\delta^L</script> - i hesablamaq.</li>
+  <li>İtkini geriyə yayma: Hər bir <script type="math/tex">l = L-1, L-2, \ldots, 2</script> üçün <script type="math/tex">\delta</script> - i hesablamaq</li>
+  <li>Nöqtəvi meyilləri hesablama: Xəta funksiyasının ağırlıq və sürüşməyə əsasən nöqtəvi meyillərini <script type="math/tex">\frac{\partial C}{\partial w}</script> və <script type="math/tex">\frac{\partial C}{\partial b}</script>  hesablamaq.</li>
+</ol>
+
+
+  </div>
+
+  <div class="date">
+      February 21, 2019, Mammad Hajili
+  </div>
+
+  
+<div class="comments">
+	<div id="disqus_thread"></div>
+	<script type="text/javascript">
+
+	    var disqus_shortname = 'true';
+
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+<a href="mailto:derintelligence@gmail.com"><i class="svg-icon email"></i></a>
+<a href="https://www.facebook.com/derintelligence"><i class="svg-icon facebook"></i></a>
+
+<a href="https://github.com/derintelligence"><i class="svg-icon github"></i></a>
+
+
+
+
+<a href="https://www.twitter.com/derintelligence"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>
