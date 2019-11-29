@@ -125,8 +125,8 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     stopwords = #siyahı
     
     #durğu işarələrinin silinməsi
-  	clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)   
-    clean_text = clean_text.replace('İ', 'I')
+    clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)   
+   	clean_text = clean_text.replace('İ', 'I')
 
     #kiçik hərfə çevirmə
     clean_text = clean_text.lower() 
@@ -164,7 +164,7 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     stopwords = #siyahı
     
     #durğu işarələrinin silinməsi
-  	clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
+    clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
     clean_text = clean_text.replace('İ', 'I')
     
     #kiçik hərfə çevirmə
