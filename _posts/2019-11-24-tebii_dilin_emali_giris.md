@@ -78,7 +78,7 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     
     text = "Biz İsmayıllı, Şəki və Qəbələdə olduq."
     
-    clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
+    clean_text = re.sub('[\W]+', ' ', text, re.UNICODE)
     
     print(clean_text)
     
@@ -101,7 +101,7 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     text = "Biz İsmayıllı, Şəki və Qəbələdə olduq."
 
     #durğu işarələrinin silinməsi
-	clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
+	clean_text = re.sub('[\W]+', ' ', text, re.UNICODE)
     
     clean_text = clean_text.replace('İ', 'I')
     clean_text = clean_text.lower()
@@ -125,7 +125,7 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     stopwords = #siyahı
     
     #durğu işarələrinin silinməsi
-    clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)   
+    clean_text = re.sub('[\W]+', ' ', text, re.UNICODE)   
     clean_text = clean_text.replace('İ', 'I')
 
     #kiçik hərfə çevirmə
@@ -164,7 +164,7 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     stopwords = #siyahı
     
     #durğu işarələrinin silinməsi
-    clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
+    clean_text = re.sub('[\W]+', ' ', text, re.UNICODE)
     clean_text = clean_text.replace('İ', 'I')
     
     #kiçik hərfə çevirmə
