@@ -78,7 +78,7 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     
     text = "Biz İsmayıllı, Şəki və Qəbələdə olduq."
     
-    clean_text = re.sub('[^A-Za-z0-9İiƏəÖöÜüŞşÇçĞğIı]+', ' ', text)
+    clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
     
     print(clean_text)
     
@@ -100,7 +100,8 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
 
     text = "Biz İsmayıllı, Şəki və Qəbələdə olduq."
 
-    clean_text = re.sub('[^A-Za-z0-9İiƏəÖöÜüŞşÇçĞğIı]+', ' ', text) #durğu işarələrinin silinməsi
+    #durğu işarələrinin silinməsi
+	clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
     
     clean_text = clean_text.replace('İ', 'I')
     clean_text = clean_text.lower()
@@ -123,15 +124,17 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     #burada lazımsız sözlərin siyahısı olmalıdır. məs. [biz, və]
     stopwords = #siyahı
     
-    clean_text = re.sub('[^A-Za-z0-9İiƏəÖöÜüŞşÇçĞğIı]+', ' ', text)
-
+    #durğu işarələrinin silinməsi
+  	clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)   
     clean_text = clean_text.replace('İ', 'I')
+
     #kiçik hərfə çevirmə
     clean_text = clean_text.lower() 
     #başdakı və sondakı boşluqları silmə
     clean_text = clean_text.strip()
     
-    tokens = clean_text.split(' ') #cümlənin tokenlərə ayrılması
+    #cümlənin tokenlərə ayrılması
+    tokens = clean_text.split(' ') 
     
     #stopwords listində olmayan tokenlər
     tokens = [token for token in tokens if token not in stopwords]
@@ -160,15 +163,17 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
     #burada lazımsız sözlərin siyahısı olmalıdır. məs. [biz, və]
     stopwords = #siyahı
     
-    clean_text = re.sub('[^A-Za-z0-9İiƏəÖöÜüŞşÇçĞğIı]+', ' ', text)
-
+    #durğu işarələrinin silinməsi
+  	clean_text = re.sub('[\W_]+', ' ', text, re.UNICODE)
     clean_text = clean_text.replace('İ', 'I')
+    
     #kiçik hərfə çevirmə
     clean_text = clean_text.lower() 
     #başdakı və sondakı boşluqları silmə
     clean_text = clean_text.strip()
     
-    tokens = clean_text.split(' ') #cümlənin tokenlərə ayrılması
+    #cümlənin tokenlərə ayrılması
+    tokens = clean_text.split(' ') 
     
     #stopwords listində olmayan tokenlər
     tokens = [token for token in tokens if token not in stopwords]
