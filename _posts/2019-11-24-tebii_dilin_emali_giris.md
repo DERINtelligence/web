@@ -245,14 +245,15 @@ TF vektorlar aşağıdakılardır:
 Hər bir token üçün IDF dəyərlər:
 
 $$
-	\begin{align}
+	\begin{aligned}
 	    \mathrm{idf}(kitab) &= \mathrm{idf}(dost) = \log {2 \over 2} = 0\\
 	    \mathrm{idf}(oxu) \, & = \mathrm{idf}(sev) = 
 	    \mathrm{idf}(film) = \\ & \qquad = \mathrm{idf}(qal) = 
 	    \mathrm{idf}(gətir) = \\ & \qquad = \mathrm{idf}(masa) = 
 	    \log {2 \over 1} \approx 0.7
-	\end{align}    
+	\end{aligned}    
 $$
+
 Yekun olaraq hər bir tekst üçün TF-IDF vektorlar belə olacaqdır:
 
 ```txt
