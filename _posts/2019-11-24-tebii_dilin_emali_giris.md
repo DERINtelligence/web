@@ -48,6 +48,7 @@ Bu datasetdə lüğətin ölçüsü 14-dür. Belə halda yuxarıda da gördüyü
 Bizim kiçik misalımızda olan lüğətə fikir versək, görərik ki, kökü eyni olan sözlərin hər biri fərqli bir tokenlə ifadə olunub. ("insana, insanların"). Həmçininin durğu işarəsi və ədat kimi kontekst ifadə etməyən tokenlər də lüğətdə mövcuddur. Hətta biri böyük və digəri kiçik hərflə başlayan eyni söz fərqli vektorlarla ifadə olunur. Bunları və digər bizim misallarda olmayan halları ehtiva edən üsulları gəlin incələyək:
 
 **Təmizlik**
+
 Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal cümlə strukturu halına salmaq üçün istifadə olunur. Bu metod üçün əsasən **regex ifadələrindən** istifadə olunur. Mən bəzi halları Python istifadə edərək göstərməyə çalışacam.
     
 1. Bəzən tekstlər müxtəlif internet bazalarından əldə edildikdə onların içində xüsusi HTML və ya XML "tag"-lərdən istifadə olunur. Məsələn:
@@ -86,6 +87,8 @@ Təmizlik əsasən internetdən əldə etdiyimiz yazılı məlumatların normal 
             Biz İsmayıllı Şəki və Qəbələdə olduq
     """
     ```
+
+
 **Tekstin ilkin prosesi**
 
 1. Kiçik hərflər
@@ -241,13 +244,15 @@ TF vektorlar aşağıdakılardır:
 
 Hər bir token üçün IDF dəyərlər:
 
-\begin{align}
-    \mathrm{idf}(kitab) &= \mathrm{idf}(dost) = \log {2 \over 2} = 0\\
-    \mathrm{idf}(oxu) \, & = \mathrm{idf}(sev) = 
-    \mathrm{idf}(film) = \\ & \qquad = \mathrm{idf}(qal) = 
-    \mathrm{idf}(gətir) = \\ & \qquad = \mathrm{idf}(masa) = 
-    \log {2 \over 1} \approx 0.7
-\end{align}    
+$$
+	\begin{align}
+	    \mathrm{idf}(kitab) &= \mathrm{idf}(dost) = \log {2 \over 2} = 0\\
+	    \mathrm{idf}(oxu) \, & = \mathrm{idf}(sev) = 
+	    \mathrm{idf}(film) = \\ & \qquad = \mathrm{idf}(qal) = 
+	    \mathrm{idf}(gətir) = \\ & \qquad = \mathrm{idf}(masa) = 
+	    \log {2 \over 1} \approx 0.7
+	\end{align}    
+$$
 Yekun olaraq hər bir tekst üçün TF-IDF vektorlar belə olacaqdır:
 
 ```txt
@@ -263,7 +268,7 @@ tf_idf("Kitab masada qalıb, dostu gətirəcək.") =
 
 ***n*-gram**
 
-Biz incələdiyimiz hər iki modeldə də yalnızca tək token üçün hesablamalar etdik. Bəzən söz birləşmələri, və ya ardıcıl tokenlər də önəmli məna daşıya bilər. Tekstdəki belə $n$ ardıcıl tokendən ibarət birləşməyə ***n*-gram** deyilir. Bizim incələdiyimiz kimi tək tokenlər *unigram* adlanır. Daha böyük ölçülü birləşmələrin adlanması da *gram* ifadəsinin əvvəlinə uyğun ədədin latınca mənasını əlavə etməklə də aparılır (2 : bigram, 3 : trigram). Gəlin bir misal ilə n-gramları incələyək:
+Biz incələdiyimiz hər iki modeldə də yalnızca tək token üçün hesablamalar etdik. Bəzən söz birləşmələri, və ya ardıcıl tokenlər də önəmli məna daşıya bilər. Tekstdəki belə *n* ardıcıl tokendən ibarət birləşməyə ***n*-gram** deyilir. Bizim incələdiyimiz kimi tək tokenlər *unigram* adlanır. Daha böyük ölçülü birləşmələrin adlanması da *gram* ifadəsinin əvvəlinə uyğun ədədin latınca mənasını əlavə etməklə də aparılır (2 : bigram, 3 : trigram). Gəlin bir misal ilə n-gramları incələyək:
 
 ```
 Dostum kitab oxumağı sevir. O, filmləri də sevir.
@@ -274,8 +279,8 @@ Dostum kitab oxumağı sevir. O, filmləri də sevir.
 - *2-gram* : ```'kitab oxu', 'film sev'```, və s.
 - *3-gram* : ```'dost kitab oxu'```, və s.
 
-Digər n-gramlar üçün TF-IDF dəyərlərinin hesablanması unigramlar üçün etdiyimiz kimi aparılır. Adətən model qurularkən ixtiyari $m$ dəyəri hesablamalarda arqument olaraq daxil edilir və lüğət $\forall n, n 
-\leq m$ şərtinə uyğun olaraq $n$-gramlarla qurulur.
+Digər n-gramlar üçün TF-IDF dəyərlərinin hesablanması unigramlar üçün etdiyimiz kimi aparılır. Adətən model qurularkən ixtiyari m dəyəri hesablamalarda arqument olaraq daxil edilir və lüğət $$\forall n, n 
+\leq m$$ şərtinə uyğun olaraq n-gramlarla qurulur.
 
 **Yekun qeydlər**
 
