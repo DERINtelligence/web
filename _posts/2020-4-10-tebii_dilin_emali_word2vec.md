@@ -36,7 +36,7 @@ Skip-gram modelində bu asılılıq şərti ehtimalla ifadə olunur, belə ki ve
 $$P(\textrm{"O"}\mid\textrm{"kitab"})\cdot P(\textrm{"oxuduğu"}\mid\textrm{"kitab"})\cdot P(\textrm{"haqqında"}\mid\textrm{"kitab"})\cdot P(\textrm{"danışırdı"}\mid\textrm{"kitab"}).$$
 
 <div class="center">
-	<img src="https://i.imgur.com/QuSsa8q.png" style="width:70%;">
+	<img src="https://i.imgur.com/QuSsa8q.png" style="width:50%;">
 </div>
 
 Bu ehtimalları hesablamaq üçün skip-gram modeldə hər bir söz $$d$$ ölçülü iki fərqli vektorla ifadə olunur, belə ki, verilən lüğətdə indeksi $$i$$ olan söz mərkəzi söz olduqda $$\mathbf{v}_i\in\mathbb{R}^d$$ vektoru ilə, məzmun söz olduqda isə, $$\mathbf{u}_i\in\mathbb{R}^d$$ vektoru ilə ifadə olunur. 
@@ -82,7 +82,7 @@ word2vec üsulunda təklif olunan digər model isə CBOW modelidir. Bu modelin s
 $$P(\textrm{"kitab"}\mid \textrm{"O"}, \textrm{"oxuduğu"},\textrm{"haqqında"},\textrm{"danışırdı"})$$
 
 <div class="center">
-	<img src="https://i.imgur.com/2NQpYPu.png" style="width:70%;">
+	<img src="https://i.imgur.com/2NQpYPu.png" style="width:50%;">
 </div>
 
 Çərçivəni $$m$$ qəbul etsək, verilən $$w_c$$ mərkəzi sözü üçün məzmun sözləri $$\mathcal{W}_o= \{w_{o_1}, \ldots, w_{o_{2m}}\}$$ ilə ifadə edə bilərik. Bu modeldə məzmun sözlərin sayı çox olduğundan softmax dəyəri hesablayarkən mərkəzi sözə uyğun gələn vektorla məzmun sözlərin vektorlarının ədədi ortasından istifadə edəcəyik. 
@@ -118,6 +118,7 @@ $$\frac{\partial \log\, P(w_c \mid \mathcal{W}_o)}{\partial \mathbf{v}_{o_i}} = 
 Skip-gram modelindən fərqli olaraq NLP tapşırıqlarda əsasən bu modelin məzmun söz vektorlarından istifadə olunur.
 
 **Nəticələr və yekun**
+
 word2vec modellərində öyrənmə zamanı yuxarıda da danışdığımız kimi yalnızca mətndən istifadə edilir, yəni verilən data işarələnməmişdir. Yəni sözlər arasında əlaqələr, məna yaxınlığı və ya uzaqlığı haqqında əvvəldən heç bir məlumata sahib olmuruq. Bununla belə, word2vec olduqca aydın və maraqlı nəticələr göstərir. Məsələn, elə müəlliflərin mövzu ilə əlaqəli digər məqaləsindən ([Mikolov et al. 2013](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf) ) ingilis dilli mətn əsasında yaradılmış 1000 ölçülü word2vec vektorlarının PCA alqoritmi ilə 2 ölçülü müstəvidə proyeksiyasına nəzər yetirək:
 
 <div class="center">
