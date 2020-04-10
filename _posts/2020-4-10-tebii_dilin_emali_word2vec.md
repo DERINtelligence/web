@@ -119,6 +119,7 @@ Skip-gram modelindən fərqli olaraq NLP tapşırıqlarda əsasən bu modelin m�
 
 **Nəticələr və yekun**
 
+
 word2vec modellərində öyrənmə zamanı yuxarıda da danışdığımız kimi yalnızca mətndən istifadə edilir, yəni verilən data işarələnməmişdir. Yəni sözlər arasında əlaqələr, məna yaxınlığı və ya uzaqlığı haqqında əvvəldən heç bir məlumata sahib olmuruq. Bununla belə, word2vec olduqca aydın və maraqlı nəticələr göstərir. Məsələn, elə müəlliflərin mövzu ilə əlaqəli digər məqaləsindən ([Mikolov et al. 2013](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf) ) ingilis dilli mətn əsasında yaradılmış 1000 ölçülü word2vec vektorlarının PCA alqoritmi ilə 2 ölçülü müstəvidə proyeksiyasına nəzər yetirək:
 
 <div class="center">
