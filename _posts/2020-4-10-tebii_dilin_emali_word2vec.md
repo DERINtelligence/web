@@ -45,7 +45,7 @@ Gəlin, bizə lazım olan şərti ehtimalların necə ifadə edildiyinə baxaq. 
 
 $$P(w_o \mid w_c) = \frac{\text{exp}(\mathbf{u}_o^\top \mathbf{v}_c)}{ \sum_{i \in \mathcal{V}} \text{exp}(\mathbf{u}_i^\top \mathbf{v}_c)}$$
 
-Verilən $$T$$ ölçülü mətn üçün yuxarıdakı ifadəni ümumiləşdirmək üçün mətndəki hər bir mərkəzi sözün məzmun sözlərlə olan şərti ehtimalının birgə ehtimalını hesablamalıyıq. Burada hər bir mərkəzi sözə uyğun şərti ehtimalların digər mərkəzi sözlərdən asılı olmadığını qəbul etsək ($a$ mərkəzi sözünə uyğun məzmun sözlərin $$a$$-dan asılılığı hadisəsi və $$b$$ sözü üçün eyni hadisə müstəqil hadisələrdir), birgə ehimalı aşağıdakı kimi ifadə edə bilərik: 
+Verilən $$T$$ ölçülü mətn üçün yuxarıdakı ifadəni ümumiləşdirmək üçün mətndəki hər bir mərkəzi sözün məzmun sözlərlə olan şərti ehtimalının birgə ehtimalını hesablamalıyıq. Burada hər bir mərkəzi sözə uyğun şərti ehtimalların digər mərkəzi sözlərdən asılı olmadığını qəbul etsək ($$a$$ mərkəzi sözünə uyğun məzmun sözlərin $$a$$-dan asılılığı hadisəsi və $$b$$ sözü üçün eyni hadisə müstəqil hadisələrdir), birgə ehimalı aşağıdakı kimi ifadə edə bilərik: 
 
 $$\prod_{t=1}^{T} \prod_{-m \leq j \leq m,\ j \neq 0} P(w^{(t+j)} \mid w^{(t)})$$
 
