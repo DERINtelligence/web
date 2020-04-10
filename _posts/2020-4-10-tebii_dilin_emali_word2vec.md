@@ -35,11 +35,13 @@ Skip-gram modelində bu asılılıq şərti ehtimalla ifadə olunur, belə ki ve
 
 $$P(\textrm{"O"}\mid\textrm{"kitab"})\cdot P(\textrm{"oxuduğu"}\mid\textrm{"kitab"})\cdot P(\textrm{"haqqında"}\mid\textrm{"kitab"})\cdot P(\textrm{"danışırdı"}\mid\textrm{"kitab"}).$$
 
-<img src="https://i.imgur.com/QuSsa8q.png" style="width:70%;">
+<div class="center">
+	<img src="https://i.imgur.com/QuSsa8q.png" style="width:70%;">
+</div>
 
 Bu ehtimalları hesablamaq üçün skip-gram modeldə hər bir söz $$d$$ ölçülü iki fərqli vektorla ifadə olunur, belə ki, verilən lüğətdə indeksi $$i$$ olan söz mərkəzi söz olduqda $$\mathbf{v}_i\in\mathbb{R}^d$$ vektoru ilə, məzmun söz olduqda isə, $$\mathbf{u}_i\in\mathbb{R}^d$$ vektoru ilə ifadə olunur. 
 
-Gəlin, bizə lazım olan şərti ehtimalların necə ifadə edildiyinə baxaq. İxtiyari mərkəzi $$w_c$$ və məzmun $$w_o$$ sözləri və $$\mathcal{V} = \{0, 1, \ldots, |\mathcal{V}|-1\}$$ lüğəti üçün məzmun sözün işlənməsinin mərkəzi sözdən asılılığını ifadə edən şərti ehtimal iki sözün vektorlarının vektoral hasilinin [softmax](https://en.wikipedia.org/wiki/Softmax_function) dəyəri ilə ifadə olunur. 
+Gəlin, bizə lazım olan şərti ehtimalların necə ifadə edildiyinə baxaq. İxtiyari mərkəzi $$w_c$$ və məzmun $$w_o$$ sözləri və $$\mathcal{V}$$ lüğəti üçün məzmun sözün işlənməsinin mərkəzi sözdən asılılığını ifadə edən şərti ehtimal iki sözün vektorlarının vektoral hasilinin [softmax](https://en.wikipedia.org/wiki/Softmax_function) dəyəri ilə ifadə olunur. 
 
 $$P(w_o \mid w_c) = \frac{\text{exp}(\mathbf{u}_o^\top \mathbf{v}_c)}{ \sum_{i \in \mathcal{V}} \text{exp}(\mathbf{u}_i^\top \mathbf{v}_c)}$$
 
@@ -78,7 +80,9 @@ word2vec üsulunda təklif olunan digər model isə CBOW modelidir. Bu modelin s
 
 $$P(\textrm{"kitab"}\mid \textrm{"O"}, \textrm{"oxuduğu"},\textrm{"haqqında"},\textrm{"danışırdı"})$$
 
-<img src="https://i.imgur.com/2NQpYPu.png" style="width:70%;">
+<div class="center">
+	<img src="https://i.imgur.com/2NQpYPu.png" style="width:70%;">
+</div>
 
 Çərçivəni $$m$$ qəbul etsək, verilən $$w_c$$ mərkəzi sözü üçün məzmun sözləri $$\mathcal{W}_o= \{w_{o_1}, \ldots, w_{o_{2m}}\}$$ ilə ifadə edə bilərik. Bu modeldə məzmun sözlərin sayı çox olduğundan softmax dəyəri hesablayarkən mərkəzi sözə uyğun gələn vektorla məzmun sözlərin vektorlarının ədədi ortasından istifadə edəcəyik. 
 
@@ -115,14 +119,17 @@ Skip-gram modelindən fərqli olaraq NLP tapşırıqlarda əsasən bu modelin m�
 **Nəticələr və yekun**
 word2vec modellərində öyrənmə zamanı yuxarıda da danışdığımız kimi yalnızca mətndən istifadə edilir, yəni verilən data işarələnməmişdir. Yəni sözlər arasında əlaqələr, məna yaxınlığı və ya uzaqlığı haqqında əvvəldən heç bir məlumata sahib olmuruq. Bununla belə, word2vec olduqca aydın və maraqlı nəticələr göstərir. Məsələn, elə müəlliflərin mövzu ilə əlaqəli digər məqaləsindən ([Mikolov et al. 2013](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf) ) ingilis dilli mətn əsasında yaradılmış 1000 ölçülü word2vec vektorlarının PCA alqoritmi ilə 2 ölçülü müstəvidə proyeksiyasına nəzər yetirək:
 
-<img src="https://i.imgur.com/VOm2SEC.jpg" style="width:70%;">
-
+<div class="center">
+	<img src="https://i.imgur.com/VOm2SEC.jpg" style="width:70%;">
+</div>
 
 Aydın şəkildə görə bilərik ki, "dövlət-paytaxt" əlaqəsi ölkə və şəhər vektorları arasında, demək olar ki, eynidir.
 
 Eyni məqalədən digər bir misala nəzər salaq. Aşağıdakı cədvəl iki sözün vektorlarının cəminə ən çox yaxın olan vektorların hansı sözlərə uyğun gəldiyini göstərir.
 
-<img src="https://i.imgur.com/w3kRSHn.jpg" style="width:70%;">
+<div class="center">
+	<img src="https://i.imgur.com/w3kRSHn.jpg" style="width:70%;">
+</div>
 
 Bu misal ilə vektorlar üzərində edilən riyazi əməliyyatların necə effektiv olduğunu və modelin vektorların oxşarlıq əlaqələrini necə ehtiva etdiyini aydın görə bilərik.
 
