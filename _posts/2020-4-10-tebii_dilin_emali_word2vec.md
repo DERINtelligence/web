@@ -76,6 +76,7 @@ $$
 **Continuous Bag of Words(CBOW)**
 
 **Model**
+
 word2vec üsulunda təklif olunan digər model isə CBOW modelidir. Bu modelin skip-gram ilə oxşarlıqları olsa da, ondan çox fundamental bir xüsusiyyətlə fərqlənir. Belə ki, skip-gramın əksinə bu modeldə mərkəz sözün işlənməsi məzmun sözlərə əsaslanır. Bu halda şərti ehtimalı belə ifadə edirik.
 
 $$P(\textrm{"kitab"}\mid \textrm{"O"}, \textrm{"oxuduğu"},\textrm{"haqqında"},\textrm{"danışırdı"})$$
