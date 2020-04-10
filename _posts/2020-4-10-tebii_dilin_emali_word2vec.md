@@ -4,8 +4,6 @@ title: Təbii dilin emalı - word2vec.
 author: Mammad Hajili
 ---
 
-**Giriş**
-
 [Unitar kod](https://derintelligence.az/tebii_dilin_emali_giris/) sözlərin vektorizasiyası üçün önəmli üsuldur. Bu üsulda vektorlar mətndəki sözlərin verilən $$N$$ ölçülü lüğətdəki yerinə, yəni $$[0, N-1]$$ intervalında indekslərə uyğun dəyərlərin yazılması ilə əldə edilir. Sözün lüğətdəki yeri $$i$$-dirsə, həmin sözün $$N$$ ölçülü unitar kod vektorunda $$i$$ indeksinin dəyəri $$1$$, digər bütün indekslər $$0$$ olacaqdır. 
 
 Bu üsul çox asan olsa da, bir çox halda əlverişli üsul deyildir. Ən önəmli problemlərdən biri unitar kod vektorlarlarının sözlər arasında bənzərliyi dəqiq ifadə edə bilməməsidir. Bu bənzərliyi ifadə etmək üçün istifadə olunan üsullardan biri kosinus oxşarlığıdır. Belə ki, iki vektor arasında bucağın kosinusu onlar arasında oxşarlığı ifadə edir. İxtiyari $$\mathbf{x}, \mathbf{y} \in \mathbb{R}^N$$ vektorları üçün olan kosinus bənzərliyi belə ifadə olunur: 
@@ -21,9 +19,9 @@ Sözlər arasında məna və əlaqəni dəqiq ifadə etməməsi unitar vektorlar
 
 Biz yazının davamıda bu modellərə və onlar öyrətmə metodlarına baxacağıq.
 
-## Skip-gram
+**Skip-gram**
 
-### Model
+**Model**
 
 Skip-gram modeldə token (mərkəzi söz) mətndə ətrafında olan tokenlərin (məzmun/qonşu sözlər) hansı sözlərə uyğun gəldiyini müəyyən etməkdə istifadə olunur. Gəlin bir nümunəyə nəzər yetirək:
 
@@ -37,8 +35,7 @@ Skip-gram modelində bu asılılıq şərti ehtimalla ifadə olunur, belə ki ve
 
 $$P(\textrm{"O"}\mid\textrm{"kitab"})\cdot P(\textrm{"oxuduğu"}\mid\textrm{"kitab"})\cdot P(\textrm{"haqqında"}\mid\textrm{"kitab"})\cdot P(\textrm{"danışırdı"}\mid\textrm{"kitab"}).$$
 
-![](https://i.imgur.com/QuSsa8q.png)
-
+<img src="https://i.imgur.com/QuSsa8q.png" style="width:70%;">
 
 Bu ehtimalları hesablamaq üçün skip-gram modeldə hər bir söz $$d$$ ölçülü iki fərqli vektorla ifadə olunur, belə ki, verilən lüğətdə indeksi $$i$$ olan söz mərkəzi söz olduqda $$\mathbf{v}_i\in\mathbb{R}^d$$ vektoru ilə, məzmun söz olduqda isə, $$\mathbf{u}_i\in\mathbb{R}^d$$ vektoru ilə ifadə olunur. 
 
@@ -74,14 +71,14 @@ $$
 
 Öyrətmədən sonra verilən lüğətdəki ixtiyari $$i$$ indeksindəki söz üçün iki fərqli vektor - $$\mathbf{v}_i$$ və $$\mathbf{u}_i$$ əldə edirik. NLP tapşırıqlarında əsasən mərkəzi söz vektoru $$\mathbf{v}_i$$ istifadə olunur.
 
-** Continuous Bag of Words(CBOW) **
+**Continuous Bag of Words(CBOW)**
 
-** Model**
+**Model**
 word2vec üsulunda təklif olunan digər model isə CBOW modelidir. Bu modelin skip-gram ilə oxşarlıqları olsa da, ondan çox fundamental bir xüsusiyyətlə fərqlənir. Belə ki, skip-gramın əksinə bu modeldə mərkəz sözün işlənməsi məzmun sözlərə əsaslanır. Bu halda şərti ehtimalı belə ifadə edirik.
 
 $$P(\textrm{"kitab"}\mid \textrm{"O"}, \textrm{"oxuduğu"},\textrm{"haqqında"},\textrm{"danışırdı"})$$
 
-![](https://i.imgur.com/2NQpYPu.png)
+<img src="https://i.imgur.com/2NQpYPu.png" style="width:70%;">
 
 Çərçivəni $$m$$ qəbul etsək, verilən $$w_c$$ mərkəzi sözü üçün məzmun sözləri $$\mathcal{W}_o= \{w_{o_1}, \ldots, w_{o_{2m}}\}$$ ilə ifadə edə bilərik. Bu modeldə məzmun sözlərin sayı çox olduğundan softmax dəyəri hesablayarkən mərkəzi sözə uyğun gələn vektorla məzmun sözlərin vektorlarının ədədi ortasından istifadə edəcəyik. 
 
@@ -99,7 +96,7 @@ Yuxarıdakı ifadələrdən istifadə edərək modelin mümkünlük funksiyasın
 
 $$\prod_{t=1}^{T}  P(w^{(t)} \mid  w^{(t-m)}, \ldots, w^{(t-1)}, w^{(t+1)}, \ldots, w^{(t+m)})$$
 
-** Öyrətmə **
+**Öyrətmə**
 
 CBOW modeli üçün öyrətmə metodu skip-gramdakı ilə demək olar ki, eynidir. Burada da yuxarıda hesabladığımız mümkünlük dəyərini maksimallaşdırmaq elə xəta funksiyasını minimallaşdırmağa ekvivalentdir. 
 
@@ -115,16 +112,17 @@ $$\frac{\partial \log\, P(w_c \mid \mathcal{W}_o)}{\partial \mathbf{v}_{o_i}} = 
 
 Skip-gram modelindən fərqli olaraq NLP tapşırıqlarda əsasən bu modelin məzmun söz vektorlarından istifadə olunur.
 
-## Nəticələr və yekun
+**Nəticələr və yekun**
 word2vec modellərində öyrənmə zamanı yuxarıda da danışdığımız kimi yalnızca mətndən istifadə edilir, yəni verilən data işarələnməmişdir. Yəni sözlər arasında əlaqələr, məna yaxınlığı və ya uzaqlığı haqqında əvvəldən heç bir məlumata sahib olmuruq. Bununla belə, word2vec olduqca aydın və maraqlı nəticələr göstərir. Məsələn, elə müəlliflərin mövzu ilə əlaqəli digər məqaləsindən ([Mikolov et al. 2013](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf) ) ingilis dilli mətn əsasında yaradılmış 1000 ölçülü word2vec vektorlarının PCA alqoritmi ilə 2 ölçülü müstəvidə proyeksiyasına nəzər yetirək:
 
-![](https://i.imgur.com/VOm2SEC.jpg)
+<img src="https://i.imgur.com/VOm2SEC.jpg" style="width:70%;">
+
 
 Aydın şəkildə görə bilərik ki, "dövlət-paytaxt" əlaqəsi ölkə və şəhər vektorları arasında, demək olar ki, eynidir.
 
 Eyni məqalədən digər bir misala nəzər salaq. Aşağıdakı cədvəl iki sözün vektorlarının cəminə ən çox yaxın olan vektorların hansı sözlərə uyğun gəldiyini göstərir.
 
-![](https://i.imgur.com/w3kRSHn.jpg)
+<img src="https://i.imgur.com/w3kRSHn.jpg" style="width:70%;">
 
 Bu misal ilə vektorlar üzərində edilən riyazi əməliyyatların necə effektiv olduğunu və modelin vektorların oxşarlıq əlaqələrini necə ehtiva etdiyini aydın görə bilərik.
 
@@ -135,7 +133,8 @@ Embedinqlərin istifadəsi müasir NLP-nin və hal-hazırda ən önəmli maşın
 
 Oxuduğunuz üçün təşəkkürlər, salamat qalın!
 
-## Ədəbiyyat
+**Ədəbiyyat**
+
 - [Efficient Estimation of Word Representations in Vector Space](https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf)
 - [Distributed Representations of Words and Phrases and their Compositionality](https://arxiv.org/abs/1301.3781)
 - [14.1. Word Embedding (word2vec), d2l.ai](http://d2l.ai/chapter_natural-language-processing-pretraining/word2vec.html#why-not-use-one-hot-vectors)
