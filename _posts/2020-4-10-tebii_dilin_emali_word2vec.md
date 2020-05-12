@@ -12,6 +12,8 @@ $$\frac{\mathbf{x}^\top \mathbf{y}}{\|\mathbf{x}\| \|\mathbf{y}\|} \in [-1, 1].$
 
 Əgər unitar vektorların xüsusiyyətinə nəzər salsaq, görə bilərik ki, iki müxtəlif sözün vektorları hər zaman perpendikulyardır ($$\mathbf{x}^\top \mathbf{y} =0$$). Deməli, iki müxtəlif sözün vektorları üçün kosinus oxşarlığı onların bir-birinə mənaca nə dərəcə yaxın və ya uzaq olmasından asılı olmayaraq hər zaman $$0$$-a bərabərdir. 
 
+<!–break–>
+
 Sözlər arasında məna və əlaqəni dəqiq ifadə etməməsi unitar vektorların bir çox NLP tapşırıqlarda istifadəsini əlverişsiz edir. Bu yazıda haqqında danışacağım [Word2Vec](https://code.google.com/archive/p/word2vec/) bu problemi həll etmək üçün [Mikolov et al., 2013](https://arxiv.org/abs/1301.3781) məqaləsində təklif edilmişdir. Bu üsulda hər bir söz təyin edilmiş ölçülü vektorla ifadə olunur və bu vektorlar sözlər arasında bənzərlikləri və əlaqələri daha geniş ehtiva edir. Word2Vec iki fərqli riyazi model təklif edir.
 
 - Skip-gram
